@@ -41,6 +41,4 @@ public class UserController {
 	public String forAnyUser() {
 		return "This URL ia accessible only to User";
 	}
-	
-
 }
