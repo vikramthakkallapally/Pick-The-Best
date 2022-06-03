@@ -24,6 +24,7 @@ public class JwtResponse {
 		return jwtToken;
 	}
 
+	
 	public void setJwtToken(String jwtToken) {
 		this.jwtToken = jwtToken;
 	}
