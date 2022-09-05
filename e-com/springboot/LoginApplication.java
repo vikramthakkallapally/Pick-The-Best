@@ -8,16 +8,7 @@ public class LoginApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(LoginApplication.class, args);
-	}
-
-}
-
-import java.util.Set;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-
+	
 public class User {
 	
 
@@ -80,5 +71,9 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+}
+		
+		}
 
 }
