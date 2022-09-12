@@ -1,3 +1,5 @@
+package com.price.comparision.ecom.bean;
+
 import java.util.Date;
 
 import javax.persistence.Entity;
