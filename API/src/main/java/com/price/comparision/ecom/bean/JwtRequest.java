@@ -1,4 +1,4 @@
-package com.price.comparision.ecom.entity;
+package com.price.comparision.ecom.bean;
 
 public class JwtRequest {
 	
