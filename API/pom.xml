@@ -10,7 +10,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>jwt-youtube</artifactId>
+	<artifactId>Pick_the_Best</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>JwtYoutube</name>
 	<description>Demo project for Spring Boot</description>
