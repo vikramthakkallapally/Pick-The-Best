@@ -1,7 +1,16 @@
+package com.price.comparision.ecom.bean;
+
 import java.util.Date;
 
-public class Contactus {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
+public class Contactus {
+	
+	@Id
+	@GeneratedValue
 	private Long id;
 	
 	private String username;
