@@ -16,43 +16,51 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
-
+public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
+	
 	@Autowired
 	private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
-
+	
 	@Autowired
-	private UserDetailsService jwtService;
-
+    private UserDetailsService jwtService;
+	
 	@Autowired
-	private JwtRequestFilter jwtRequestFilter;
+    private JwtRequestFilter jwtRequestFilter;
 
+	
 	@Bean
 	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
-
+	
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
-		httpSecurity.cors();
-		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/authenticate", "/user/registerNewUser")
-				.permitAll().antMatchers(HttpHeaders.ALLOW).permitAll().anyRequest().authenticated().and()
-				.exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
-				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		 httpSecurity.cors();
+	        httpSecurity.csrf().disable()
+	                .authorizeRequests().antMatchers("/authenticate", "/user/registerNewUser",
+	                		"/reset/sendotp","/reset/verifyOtp","/reset/password","/chat/**").permitAll()
+	                .antMatchers(HttpHeaders.ALLOW).permitAll()
+	                .anyRequest().authenticated()
+	                .and()
+	                .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
+	                .and()
+	                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+	        ;
 
-		httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-
+	        httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+				
 	}
-
+	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-
+	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
 		authenticationManagerBuilder.userDetailsService(jwtService).passwordEncoder(passwordEncoder());

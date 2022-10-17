@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="API/src/main/java"/>
+	<classpathentry kind="src" path="API/src/test/java"/>
+	<classpathentry kind="src" path="e-com/springboot/e-com/src/main/java"/>
+	<classpathentry kind="lib" path="API/.mvn/wrapper/maven-wrapper.jar"/>
+	<classpathentry kind="lib" path="e-com/springboot/e-com/.mvn/wrapper/maven-wrapper.jar"/>
+	<classpathentry kind="output" path="API/target/classes"/>
+</classpath>
